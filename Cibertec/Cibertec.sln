@@ -5,9 +5,13 @@ VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.Models", "Cibertec.Models\Cibertec.Models.csproj", "{00B7C042-D694-4731-B338-17BD921532C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Repositories", "Cibertec.Repositories\Cibertec.Repositories.csproj", "{FC623872-B486-4A1E-BA37-8609BD704AE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.Repositories", "Cibertec.Repositories\Cibertec.Repositories.csproj", "{FC623872-B486-4A1E-BA37-8609BD704AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.RepositoriesTests", "Cibertec.RepositoriesTests\Cibertec.RepositoriesTests.csproj", "{D80E4170-2783-4083-8390-BBB43468D237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.RepositoriesTests", "Cibertec.RepositoriesTests\Cibertec.RepositoriesTests.csproj", "{D80E4170-2783-4083-8390-BBB43468D237}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{64A4B4E7-AE42-448E-85F6-AC334A309A06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F17A3726-FBAB-4852-A87A-924D74CE0720}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +34,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{00B7C042-D694-4731-B338-17BD921532C3} = {64A4B4E7-AE42-448E-85F6-AC334A309A06}
+		{FC623872-B486-4A1E-BA37-8609BD704AE7} = {64A4B4E7-AE42-448E-85F6-AC334A309A06}
+		{D80E4170-2783-4083-8390-BBB43468D237} = {F17A3726-FBAB-4852-A87A-924D74CE0720}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA846BAC-8AC7-454E-B999-B090DFE2217E}

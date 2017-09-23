@@ -9,19 +9,64 @@ namespace Cibertec.RepositoriesTests
 {
     public class CustomerRepositoryTest
     {
-        private readonly DbContext _context;
+        private readonly RepositoryEF<Customer> repo;
 
         public CustomerRepositoryTest()
         {
-            _context = new NorthwindDbContext();
+            DbContext _context = new NorthwindDbContext();
+            repo = new RepositoryEF<Customer>(_context);
         }
 
         [Fact(DisplayName = "[CustomerRepository] GelAll")]
         public void Customer_Repository_GetAll()
         {
-            var repo = new RepositoryEF<Customer>(_context);
             var result = repo.GetList();
             Assert.True(result.Count() > 0);
+        }
+
+        [Fact(DisplayName = "[CustomerRepository] Insert")]
+        public void Customer_Repository_Insert()
+        {
+            var customer = GetNewCustomer();
+            var result = repo.Insert(customer);
+            Assert.True(result > 0);
+        }
+
+        [Fact(DisplayName = "[CustomerRepository] Delete")]
+        public void Customer_Repository_Delete()
+        {
+            Customer customer = GetNewCustomer();
+            var result = repo.Insert(customer);
+            Assert.True(repo.Delete(customer));
+        }
+
+        private Customer GetNewCustomer()
+        {
+            return new Customer
+            {
+                City = "Lima",
+                Country = "Peru",
+                FirstName = "Julio",
+                LastName = "Velarde",
+                Phone = "555-555-555"
+            };
+        }
+
+        [Fact(DisplayName = "[CustomerRepository] Update")]
+        public void Customer_Repository_Update()
+        {
+            var customer = repo.GetById(10);
+            Assert.True(customer != null);
+
+            customer.FirstName = $"Today {DateTime.Now.ToShortDateString()}";
+            Assert.True(repo.Update(customer));
+        }
+
+        [Fact(DisplayName = "[CustomerRepository] GetById")]
+        public void Customer_Repository_GetById()
+        {
+            var customer = repo.GetById(10);
+            Assert.True(customer != null);
         }
     }
 }
