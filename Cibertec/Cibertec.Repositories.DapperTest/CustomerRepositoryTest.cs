@@ -1,11 +1,10 @@
 using Cibertec.Models;
-using Cibertec.Repositories.EntityFramework.Northwind;
-using Microsoft.EntityFrameworkCore;
+using Cibertec.Repositories.Dapper.Northwind;
 using System;
 using System.Linq;
 using Xunit;
 
-namespace Cibertec.Repositories.EntityFrameworkTests
+namespace Cibertec.Repositories.DapperTest
 {
     public class CustomerRepositoryTest
     {
@@ -13,8 +12,7 @@ namespace Cibertec.Repositories.EntityFrameworkTests
 
         public CustomerRepositoryTest()
         {
-            DbContext _context = new NorthwindDbContext();
-            repo = new CustomerRepository(_context);
+            repo = new CustomerRepository("Server=.;Database=Northwind_Lite; Trusted_Connection=True;MultipleActiveResultSets=True");
         }
 
         [Fact(DisplayName = "[CustomerRepository] GelAll")]

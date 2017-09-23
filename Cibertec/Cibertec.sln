@@ -7,11 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.Models", "Cibertec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.Repositories", "Cibertec.Repositories\Cibertec.Repositories.csproj", "{FC623872-B486-4A1E-BA37-8609BD704AE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.RepositoriesTests", "Cibertec.RepositoriesTests\Cibertec.RepositoriesTests.csproj", "{D80E4170-2783-4083-8390-BBB43468D237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.Repositories.EntityFrameworkTests", "Cibertec.RepositoriesTests\Cibertec.Repositories.EntityFrameworkTests.csproj", "{D80E4170-2783-4083-8390-BBB43468D237}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{64A4B4E7-AE42-448E-85F6-AC334A309A06}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F17A3726-FBAB-4852-A87A-924D74CE0720}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Repositories.EntityFramework", "Cibertec.Repositories.EntityFramework\Cibertec.Repositories.EntityFramework.csproj", "{BF1E85A6-6F0F-41E5-BF98-A2B9CBE86C85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Repositories.Dapper", "Cibertec.Repositories.Dapper\Cibertec.Repositories.Dapper.csproj", "{C66269BA-B013-4689-B335-FCA4D6AF15D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Repositories.DapperTest", "Cibertec.Repositories.DapperTest\Cibertec.Repositories.DapperTest.csproj", "{DD26ABFC-5769-481D-8906-AAA24AE8A538}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +37,18 @@ Global
 		{D80E4170-2783-4083-8390-BBB43468D237}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D80E4170-2783-4083-8390-BBB43468D237}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D80E4170-2783-4083-8390-BBB43468D237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF1E85A6-6F0F-41E5-BF98-A2B9CBE86C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1E85A6-6F0F-41E5-BF98-A2B9CBE86C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1E85A6-6F0F-41E5-BF98-A2B9CBE86C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1E85A6-6F0F-41E5-BF98-A2B9CBE86C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C66269BA-B013-4689-B335-FCA4D6AF15D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66269BA-B013-4689-B335-FCA4D6AF15D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66269BA-B013-4689-B335-FCA4D6AF15D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66269BA-B013-4689-B335-FCA4D6AF15D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD26ABFC-5769-481D-8906-AAA24AE8A538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD26ABFC-5769-481D-8906-AAA24AE8A538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD26ABFC-5769-481D-8906-AAA24AE8A538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD26ABFC-5769-481D-8906-AAA24AE8A538}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +57,9 @@ Global
 		{00B7C042-D694-4731-B338-17BD921532C3} = {64A4B4E7-AE42-448E-85F6-AC334A309A06}
 		{FC623872-B486-4A1E-BA37-8609BD704AE7} = {64A4B4E7-AE42-448E-85F6-AC334A309A06}
 		{D80E4170-2783-4083-8390-BBB43468D237} = {F17A3726-FBAB-4852-A87A-924D74CE0720}
+		{BF1E85A6-6F0F-41E5-BF98-A2B9CBE86C85} = {64A4B4E7-AE42-448E-85F6-AC334A309A06}
+		{C66269BA-B013-4689-B335-FCA4D6AF15D4} = {64A4B4E7-AE42-448E-85F6-AC334A309A06}
+		{DD26ABFC-5769-481D-8906-AAA24AE8A538} = {F17A3726-FBAB-4852-A87A-924D74CE0720}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA846BAC-8AC7-454E-B999-B090DFE2217E}

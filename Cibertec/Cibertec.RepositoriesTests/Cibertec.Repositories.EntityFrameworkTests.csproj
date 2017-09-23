@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cibertec.Models\Cibertec.Models.csproj" />
-    <ProjectReference Include="..\Cibertec.Repositories\Cibertec.Repositories.csproj" />
+    <ProjectReference Include="..\Cibertec.Repositories.EntityFramework\Cibertec.Repositories.EntityFramework.csproj" />
   </ItemGroup>
 
 </Project>

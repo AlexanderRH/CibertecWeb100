@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace Cibertec.Repositories
+namespace Cibertec.Repositories.EntityFramework
 {
-    public class RepositoryEF<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly DbContext _context;
+        protected DbContext _context;
 
-        public RepositoryEF(DbContext context)
+        public Repository(DbContext context)
         {
             _context = context;
         }
