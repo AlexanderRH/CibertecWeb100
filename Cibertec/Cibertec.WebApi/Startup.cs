@@ -1,15 +1,11 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Cibertec.UnitOfWork;
 using Cibertec.Repositories.Dapper.Northwind;
-using FluentValidation.AspNetCore;
-using Cibertec.MVC.Validators;
-using Cibertec.Models;
-using FluentValidation;
 
-namespace Cibertec.MVC
+namespace Cibertec.WebApi
 {
     public class Startup
     {
@@ -30,9 +26,7 @@ namespace Cibertec.MVC
                             Configuration.GetConnectionString("Northwind")
                         )
                 );
-
-            services.AddMvc().AddFluentValidation();
-            services.AddTransient<IValidator<Customer>, CustomerValidator>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,21 +35,9 @@ namespace Cibertec.MVC
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
             }
 
-            app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
         }
     }
 }
