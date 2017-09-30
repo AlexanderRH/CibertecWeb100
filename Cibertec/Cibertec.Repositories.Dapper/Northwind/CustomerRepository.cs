@@ -23,7 +23,7 @@ namespace Cibertec.Repositories.Dapper.Northwind
                 parameters.Add("@lastName", lastName);
 
                 return connection.QueryFirst<Customer>(
-                    "dbo.CustomerSearchByName", // es mejor indicar el esquema
+                    "dbo.CustomerSearchByNames", // es mejor indicar el esquema
                     parameters,
                     commandType: System.Data.CommandType.StoredProcedure
                     );
