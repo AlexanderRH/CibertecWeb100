@@ -8,17 +8,17 @@ namespace Cibertec.Repositories.DapperTest
 {
     public class CustomerRepositoryTest
     {
-        private readonly NorthwindUnitOfWork repo;
+        private readonly NorthwindUnitOfWork unit;
 
         public CustomerRepositoryTest()
         {
-            repo = new NorthwindUnitOfWork("Server=.;Database=Northwind_Lite; Trusted_Connection=True;MultipleActiveResultSets=True");
+            unit = new NorthwindUnitOfWork("Server=.;Database=Northwind_Lite; Trusted_Connection=True;MultipleActiveResultSets=True");
         }
 
         [Fact(DisplayName = "[CustomerRepository] GelAll")]
         public void Customer_Repository_GetAll()
         {
-            var result = repo.Customer.GetList();
+            var result = unit.Customer.GetList();
             Assert.True(result.Count() > 0);
         }
 
@@ -26,7 +26,7 @@ namespace Cibertec.Repositories.DapperTest
         public void Customer_Repository_Insert()
         {
             var customer = GetNewCustomer();
-            var result = repo.Customer.Insert(customer);
+            var result = unit.Customer.Insert(customer);
             Assert.True(result > 0);
         }
 
@@ -34,8 +34,8 @@ namespace Cibertec.Repositories.DapperTest
         public void Customer_Repository_Delete()
         {
             Customer customer = GetNewCustomer();
-            var result = repo.Customer.Insert(customer);
-            Assert.True(repo.Customer.Delete(customer));
+            var result = unit.Customer.Insert(customer);
+            Assert.True(unit.Customer.Delete(customer));
         }
 
         private Customer GetNewCustomer()
@@ -53,24 +53,24 @@ namespace Cibertec.Repositories.DapperTest
         [Fact(DisplayName = "[CustomerRepository] Update")]
         public void Customer_Repository_Update()
         {
-            var customer = repo.Customer.GetById(10);
+            var customer = unit.Customer.GetById(10);
             Assert.True(customer != null);
 
             customer.FirstName = $"Today {DateTime.Now.ToShortDateString()}";
-            Assert.True(repo.Customer.Update(customer));
+            Assert.True(unit.Customer.Update(customer));
         }
 
         [Fact(DisplayName = "[CustomerRepository] GetById")]
         public void Customer_Repository_GetById()
         {
-            var customer = repo.Customer.GetById(10);
+            var customer = unit.Customer.GetById(10);
             Assert.True(customer != null);
         }
 
         [Fact(DisplayName = "[CustomerRepository] SearchByNames")]
         public void Customer_Repository_SearchByNames()
         {
-            var customer = repo.Customer.SearchByNames("Julio", "Velarde");
+            var customer = unit.Customer.SearchByNames("Julio", "Velarde");
             Assert.True(customer != null);
         }
     }
