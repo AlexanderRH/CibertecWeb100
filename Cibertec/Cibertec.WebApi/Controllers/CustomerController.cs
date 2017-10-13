@@ -23,6 +23,12 @@ namespace Cibertec.WebApi.Controllers
             return Ok(_unit.Customer.GetById(id));
         }
 
+        [Route("{firstName}/{lastName}")]
+        public IActionResult SearchByNames(string firstName, string lastName)
+        {
+            return Ok(_unit.Customer.SearchByNames(firstName, lastName));
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] Customer customer)
         {

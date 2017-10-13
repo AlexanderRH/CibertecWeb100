@@ -5,16 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 using Cibertec.Models;
 using System.Collections.Generic;
 using FluentAssertions;
+using System;
 
 namespace Cibertec.WebApi.Test
 {
-    public class CustomerControllerTest
+    public class OrderItemControllerTest
     {
-        private readonly CustomerController _customerController;
+        private readonly OrderItemController _orderItemController;
 
-        public CustomerControllerTest()
+        public OrderItemControllerTest()
         {
-            _customerController = new CustomerController
+            _orderItemController = new OrderItemController
                 (
                     new NorthwindUnitOfWork(ConfigSettings.NorthwindConnectionString)
                 );
@@ -23,19 +24,19 @@ namespace Cibertec.WebApi.Test
         [Fact]
         public void Test_GetAll()
         {
-            var result = _customerController.GetList() as OkObjectResult;
+            var result = _orderItemController.GetList() as OkObjectResult;
 
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
 
-            var model = result.Value as List<Customer>;
+            var model = result.Value as List<OrderItem>;
             model.Count.Should().BeGreaterThan(0);
         }
 
         [Fact]
         public void Test_GetById()
         {
-            var result = _customerController.GetById(10) as OkObjectResult;
+            var result = _orderItemController.GetById(23) as OkObjectResult;
 
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
@@ -44,9 +45,9 @@ namespace Cibertec.WebApi.Test
         [Fact]
         public void Test_Post()
         {
-            var customer = GetNewCustomer();
+            var orderItem = GetNewOrderItem();
 
-            var result = _customerController.Post(customer) as OkObjectResult;
+            var result = _orderItemController.Post(orderItem) as OkObjectResult;
 
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
@@ -55,11 +56,11 @@ namespace Cibertec.WebApi.Test
         [Fact]
         public void Test_Put()
         {
-            var customer = GetNewCustomer();
-            customer.Id = 10;
-            customer.City = "Trujillo";
+            var orderItem = GetNewOrderItem();
+            orderItem.Id = 23;
+            orderItem.UnitPrice = 20;
 
-            var result = _customerController.Put(customer) as OkObjectResult;
+            var result = _orderItemController.Put(orderItem) as OkObjectResult;
 
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
@@ -68,25 +69,24 @@ namespace Cibertec.WebApi.Test
         [Fact]
         public void Test_Delete()
         {
-            var customer = GetNewCustomer();
-            var resultCreate = _customerController.Post(customer) as OkObjectResult;
+            var orderItem = GetNewOrderItem();
+            var resultCreate = _orderItemController.Post(orderItem) as OkObjectResult;
             resultCreate.Should().NotBeNull();
             resultCreate.Value.Should().NotBeNull();
 
-            var result = _customerController.Delete(customer) as OkObjectResult;
+            var result = _orderItemController.Delete(orderItem) as OkObjectResult;
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
         }
 
-        private Customer GetNewCustomer()
+        private OrderItem GetNewOrderItem()
         {
-            return new Customer
+            return new OrderItem
             {
-                City = "Lima",
-                Country = "Peru",
-                FirstName = "Alexander",
-                LastName = "Rodriguez",
-                Phone = "555-555-555"
+                OrderId = 2,
+                ProductId = 77,
+                UnitPrice = 12,
+                Quantity = 2
             };
         }
     }

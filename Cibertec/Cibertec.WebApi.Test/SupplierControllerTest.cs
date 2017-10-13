@@ -5,16 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 using Cibertec.Models;
 using System.Collections.Generic;
 using FluentAssertions;
+using System;
 
 namespace Cibertec.WebApi.Test
 {
-    public class CustomerControllerTest
+    public class SupplierControllerTest
     {
-        private readonly CustomerController _customerController;
+        private readonly SupplierController _supplierController;
 
-        public CustomerControllerTest()
+        public SupplierControllerTest()
         {
-            _customerController = new CustomerController
+            _supplierController = new SupplierController
                 (
                     new NorthwindUnitOfWork(ConfigSettings.NorthwindConnectionString)
                 );
@@ -23,19 +24,19 @@ namespace Cibertec.WebApi.Test
         [Fact]
         public void Test_GetAll()
         {
-            var result = _customerController.GetList() as OkObjectResult;
+            var result = _supplierController.GetList() as OkObjectResult;
 
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
 
-            var model = result.Value as List<Customer>;
+            var model = result.Value as List<Supplier>;
             model.Count.Should().BeGreaterThan(0);
         }
 
         [Fact]
         public void Test_GetById()
         {
-            var result = _customerController.GetById(10) as OkObjectResult;
+            var result = _supplierController.GetById(11) as OkObjectResult;
 
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
@@ -44,9 +45,9 @@ namespace Cibertec.WebApi.Test
         [Fact]
         public void Test_Post()
         {
-            var customer = GetNewCustomer();
+            var supplier = GetNewSupplier();
 
-            var result = _customerController.Post(customer) as OkObjectResult;
+            var result = _supplierController.Post(supplier) as OkObjectResult;
 
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
@@ -55,11 +56,11 @@ namespace Cibertec.WebApi.Test
         [Fact]
         public void Test_Put()
         {
-            var customer = GetNewCustomer();
-            customer.Id = 10;
-            customer.City = "Trujillo";
+            var supplier = GetNewSupplier();
+            supplier.Id = 18;
+            supplier.ContactTitle = "Otro Titulo";
 
-            var result = _customerController.Put(customer) as OkObjectResult;
+            var result = _supplierController.Put(supplier) as OkObjectResult;
 
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
@@ -68,25 +69,27 @@ namespace Cibertec.WebApi.Test
         [Fact]
         public void Test_Delete()
         {
-            var customer = GetNewCustomer();
-            var resultCreate = _customerController.Post(customer) as OkObjectResult;
+            var supplier = GetNewSupplier();
+            var resultCreate = _supplierController.Post(supplier) as OkObjectResult;
             resultCreate.Should().NotBeNull();
             resultCreate.Value.Should().NotBeNull();
 
-            var result = _customerController.Delete(customer) as OkObjectResult;
+            var result = _supplierController.Delete(supplier) as OkObjectResult;
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
         }
 
-        private Customer GetNewCustomer()
+        private Supplier GetNewSupplier()
         {
-            return new Customer
+            return new Supplier
             {
-                City = "Lima",
-                Country = "Peru",
-                FirstName = "Alexander",
-                LastName = "Rodriguez",
-                Phone = "555-555-555"
+                CompanyName = "Nueva Compañia",
+                ContactName = "Nuevo Contacto",
+                ContactTitle = "Nuevo Titulo",
+                City = "Boston",
+                Country = "USA",
+                Phone = "545787",
+                Fax = "546654"
             };
         }
     }
