@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.MVC", "Cibertec.MV
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.WebApi", "Cibertec.WebApi\Cibertec.WebApi.csproj", "{B1636F06-4CB0-4C8E-9E7A-4F9436995304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.WebApi.Test", "Cibertec.WebApi.Test\Cibertec.WebApi.Test.csproj", "{8C026E10-A199-4DA3-889F-CCE6787FDB7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.WebApi.Test", "Cibertec.WebApi.Test\Cibertec.WebApi.Test.csproj", "{8C026E10-A199-4DA3-889F-CCE6787FDB7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Mocked", "Cibertec.Mocked\Cibertec.Mocked.csproj", "{47C1CC46-BA69-411D-B433-AFF7708FBEA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{8C026E10-A199-4DA3-889F-CCE6787FDB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C026E10-A199-4DA3-889F-CCE6787FDB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C026E10-A199-4DA3-889F-CCE6787FDB7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C1CC46-BA69-411D-B433-AFF7708FBEA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C1CC46-BA69-411D-B433-AFF7708FBEA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C1CC46-BA69-411D-B433-AFF7708FBEA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C1CC46-BA69-411D-B433-AFF7708FBEA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{A8C1B906-B3C7-4371-A104-37912F07EC6E} = {9376C071-DD61-40D8-83FD-62E8FBE4DC75}
 		{B1636F06-4CB0-4C8E-9E7A-4F9436995304} = {9376C071-DD61-40D8-83FD-62E8FBE4DC75}
 		{8C026E10-A199-4DA3-889F-CCE6787FDB7B} = {F17A3726-FBAB-4852-A87A-924D74CE0720}
+		{47C1CC46-BA69-411D-B433-AFF7708FBEA0} = {F17A3726-FBAB-4852-A87A-924D74CE0720}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA846BAC-8AC7-454E-B999-B090DFE2217E}

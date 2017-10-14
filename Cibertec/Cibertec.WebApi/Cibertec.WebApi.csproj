@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <DebugType>Full</DebugType>
+    <DebugSimbols>True</DebugSimbols>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,5 +28,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Cibertec.Repositories.Dapper\Cibertec.Repositories.Dapper.csproj" />
   </ItemGroup>
-
 </Project>

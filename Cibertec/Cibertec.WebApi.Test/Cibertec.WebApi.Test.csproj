@@ -19,6 +19,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cibertec.Mocked\Cibertec.Mocked.csproj" />
     <ProjectReference Include="..\Cibertec.Repositories.Dapper\Cibertec.Repositories.Dapper.csproj" />
     <ProjectReference Include="..\Cibertec.WebApi\Cibertec.WebApi.csproj" />
   </ItemGroup>

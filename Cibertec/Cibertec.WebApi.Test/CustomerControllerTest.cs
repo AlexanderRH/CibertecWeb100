@@ -5,19 +5,21 @@ using Microsoft.AspNetCore.Mvc;
 using Cibertec.Models;
 using System.Collections.Generic;
 using FluentAssertions;
+using Cibertec.UnitOfWork;
+using Cibertec.Mocked;
 
 namespace Cibertec.WebApi.Test
 {
     public class CustomerControllerTest
     {
         private readonly CustomerController _customerController;
+        private readonly IUnitOfWork _unitMocked;
 
         public CustomerControllerTest()
         {
-            _customerController = new CustomerController
-                (
-                    new NorthwindUnitOfWork(ConfigSettings.NorthwindConnectionString)
-                );
+            var unitMocked = new UnitOfWorkMocked();
+            _unitMocked = unitMocked.GetInstance();
+            _customerController = new CustomerController(_unitMocked);
         }
 
         [Fact]
