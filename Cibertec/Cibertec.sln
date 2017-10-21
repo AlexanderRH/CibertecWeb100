@@ -49,6 +49,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Cibertec.Html", "Cibertec.H
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "1482"
+		SlnRelativePath = "Cibertec.Html\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
