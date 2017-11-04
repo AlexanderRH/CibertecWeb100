@@ -4,7 +4,7 @@
             navigator.geolocation.getCurrentPosition(showPosition)
         }
     }
-
+     
     function showPosition(position) {
         var location = {
             lat: position.coords.latitude,
