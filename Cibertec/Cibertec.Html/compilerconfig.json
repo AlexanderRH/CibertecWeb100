@@ -2,5 +2,9 @@
   {
     "outputFile": "css/site.css",
     "inputFile": "scss/styles.scss"
+  },
+  {
+    "outputFile": "scss/components/_map.css",
+    "inputFile": "scss/components/_map.scss"
   }
 ]
