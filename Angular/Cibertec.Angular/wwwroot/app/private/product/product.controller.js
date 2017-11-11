@@ -80,6 +80,7 @@
                      console.log(error);
                  });
          }
+
          function updateProduct() {
              if (!vm.product) return;
              dataService.putData(apiUrl + '/product', vm.product)
