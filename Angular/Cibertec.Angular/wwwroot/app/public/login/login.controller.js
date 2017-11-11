@@ -22,7 +22,8 @@
 		}
 
 		function login() {
-			authenticationService.login(vm.user);
+            authenticationService.login(vm.user);
+            $state.go("home");
 		}
 	}
 

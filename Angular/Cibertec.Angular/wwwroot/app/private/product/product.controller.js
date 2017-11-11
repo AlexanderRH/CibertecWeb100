@@ -36,9 +36,10 @@
 
          function configurePagination() {
              //In case mobile just show 5 pages
-             var widthScreen = (window.innerWidth > 0) ?
-                 window.innerWidth : screen.width;
+             var widthScreen = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
              if (widthScreen < 420) vm.maxSize = 5;
+
              totalRecords();
          }
 
@@ -58,8 +59,7 @@
          }
 
          function getPageRecords(page) {
-             dataService.getData(apiUrl + '/product/list/' + page + '/'
-                 + vm.itemsPerPage)
+             dataService.getData(apiUrl + '/product/list/' + page + '/' + vm.itemsPerPage)
                  .then(function (result) {
                      vm.productList = result.data;
                  },
@@ -112,8 +112,8 @@
          }
 
          function deleteProduct() {
-             dataService.deleteData(apiUrl + '/product/' +
-                 vm.product.id)
+             dataService.deleteData(apiUrl + '/product/' + vm.product.id)
+             //dataService.deleteData(apiUrl + '/product', vm.product.id)
                  .then(function (result) {
                      getPageRecords(vm.currentPage);
                      closeModal();

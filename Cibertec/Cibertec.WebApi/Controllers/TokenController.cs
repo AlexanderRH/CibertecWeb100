@@ -33,8 +33,9 @@ namespace Cibertec.WebApi.Controllers
             var lifeInHours = 8;
             var token = new JsonWebToken
             {
-                Access_Token = _tokenProvider.CreateToken(user, DateTime.UtcNow.AddHours(lifeInHours)),
-                Expires_In = lifeInHours * 60
+                //Access_Token = _tokenProvider.CreateToken(user, DateTime.UtcNow.AddHours(lifeInHours)),
+                Access_Token = _tokenProvider.CreateToken(user, DateTime.UtcNow.AddMinutes(lifeInHours)),
+                Expires_In = 2 //lifeInHours * 60
             };
 
             return token;
