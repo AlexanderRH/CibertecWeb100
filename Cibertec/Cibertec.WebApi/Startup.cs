@@ -66,6 +66,8 @@ namespace Cibertec.WebApi
                         .Build();
                     }
                 );
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +77,11 @@ namespace Cibertec.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(option =>
+            {
+                option.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+            });
 
             app.UseResponseCompression();            app.UseAuthentication();
             app.UseMvc();
