@@ -42,12 +42,28 @@ namespace Cibertec.WebApi.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromBody] Supplier supplier)
+        [Route("{id}")]
+        public IActionResult Delete(int? id)
         {
-            if (supplier.Id > 0)
-                return Ok(_unit.Supplier.Delete(supplier));
+            if (id.HasValue && id.Value > 0)
+                return Ok(_unit.Supplier.Delete(new Supplier { Id = id.Value }));
 
             return BadRequest(new { Message = "Incorrect data." });
+        }
+        [HttpGet]
+        [Route("count")]
+        public IActionResult GetCount()
+        {
+            return Ok(_unit.Supplier.Count());
+        }
+
+        [HttpGet]
+        [Route("list/{page}/{rows}")]
+        public IActionResult GetList(int page, int rows)
+        {
+            var startRecord = ((page - 1) * rows) + 1;
+            var endRecord = page * rows;
+            return Ok(_unit.Supplier.PagedList(startRecord, endRecord));
         }
     }
 }

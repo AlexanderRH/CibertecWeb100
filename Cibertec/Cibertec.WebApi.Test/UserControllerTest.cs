@@ -74,7 +74,7 @@ namespace Cibertec.WebApi.Test
             resultCreate.Should().NotBeNull();
             resultCreate.Value.Should().NotBeNull();
 
-            var result = _userController.Delete(user) as OkObjectResult;
+            var result = _userController.Delete(user.Id) as OkObjectResult;
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
         }

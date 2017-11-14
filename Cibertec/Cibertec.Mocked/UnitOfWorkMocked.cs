@@ -1,8 +1,8 @@
-﻿using Cibertec.Models;
+﻿using AutoFixture;
+using Cibertec.Models;
 using Cibertec.Repositories.Northwind;
 using Cibertec.UnitOfWork;
 using Moq;
-using Ploeh.AutoFixture;
 using System.Collections.Generic;
 using System.Linq;
 

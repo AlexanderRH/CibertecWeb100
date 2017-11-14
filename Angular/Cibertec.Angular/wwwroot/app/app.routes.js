@@ -23,6 +23,14 @@
                 url: "/customer",
                 templateUrl: 'app/private/customer/index.html'
             })
+            .state("supplier", {
+                url: "/supplier",
+                templateUrl: 'app/private/supplier/index.html'
+            })
+            .state("user", {
+                url: "/user",
+                templateUrl: 'app/private/user/index.html'
+            })
             .state("otherwise", {
                 url: "/",
                 templateUrl: "app/home.html"

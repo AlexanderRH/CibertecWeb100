@@ -74,7 +74,7 @@ namespace Cibertec.WebApi.Test
             resultCreate.Should().NotBeNull();
             resultCreate.Value.Should().NotBeNull();
 
-            var result = _supplierController.Delete(supplier) as OkObjectResult;
+            var result = _supplierController.Delete(supplier.Id) as OkObjectResult;
             result.Should().NotBeNull();
             result.Value.Should().NotBeNull();
         }
