@@ -7,5 +7,8 @@ namespace Cibertec.Repositories.Northwind
 {
     public interface IOrderItemRepository : IRepository<OrderItem>
     {
+        IEnumerable<OrderItem> PagedList(int startRow, int endRow);
+
+        int Count();
     }
 }

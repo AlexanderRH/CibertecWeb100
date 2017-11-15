@@ -105,3 +105,47 @@
       .user-card .buttons-controls {
         padding-bottom: 1.3rem; } }
 
+.order-card {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-top: .5rem;
+  margin-top: .5rem;
+  height: 150px; }
+  @media (min-width: 768px) {
+    .order-card {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      height: 180px; } }
+  .order-card .buttons-controls {
+    bottom: 0;
+    position: absolute;
+    padding-bottom: 1rem; }
+    @media (min-width: 768px) {
+      .order-card .buttons-controls {
+        padding-bottom: 1.3rem; } }
+
+.order-item-card {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-top: .5rem;
+  margin-top: .5rem;
+  height: 150px; }
+  @media (min-width: 768px) {
+    .order-item-card {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      height: 180px; } }
+  .order-item-card .buttons-controls {
+    bottom: 0;
+    position: absolute;
+    padding-bottom: 1rem; }
+    @media (min-width: 768px) {
+      .order-item-card .buttons-controls {
+        padding-bottom: 1.3rem; } }
+

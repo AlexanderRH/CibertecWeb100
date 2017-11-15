@@ -1,16 +1,16 @@
 ﻿(function () {
     'use strict';
     angular.module('app')
-        .controller('userController', userController);
+        .controller('orderController', orderController);
 
-    userController.$inject = ['dataService', 'configService', '$state', '$scope'];
-    function userController(dataService, configService, $state, $scope) {
+    orderController.$inject = ['dataService', 'configService', '$state', '$scope'];
+    function orderController(dataService, configService, $state, $scope) {
         var apiUrl = configService.getApiUrl();
         var vm = this;
 
         //Propiedades
-        vm.user = {};
-        vm.userList = [];
+        vm.order = {};
+        vm.orderList = [];
         vm.modalButtonTitle = '';
         vm.readOnly = false;
         vm.isDelete = false;
@@ -20,11 +20,12 @@
         vm.currentPage = 1;
         vm.maxSize = 10;
         vm.itemsPerPage = 30;
+
         //Funciones
-        vm.getUser = getUser;
+        vm.getOrder = getOrder;
         vm.create = create;
         vm.edit = edit;
-        vm.delete = userDelete;
+        vm.delete = orderDelete;
         vm.pageChanged = pageChanged;
         vm.closeModal = closeModal;
         init();
@@ -48,7 +49,7 @@
         }
 
         function totalRecords() {
-            dataService.getData(apiUrl + '/user/count')
+            dataService.getData(apiUrl + '/order/count')
                 .then(function (result) {
                     vm.totalRecords = result.data;
                     getPageRecords(vm.currentPage);
@@ -59,48 +60,47 @@
         }
 
         function getPageRecords(page) {
-            dataService.getData(apiUrl + '/user/list/' + page + '/' + vm.itemsPerPage)
+            dataService.getData(apiUrl + '/order/list/' + page + '/' + vm.itemsPerPage)
                 .then(function (result) {
-                    vm.userList = result.data;
+                    vm.orderList = result.data;
                 },
                 function (error) {
-                    vm.userList = [];
+                    vm.orderList = [];
                     console.log(error);
                 });
         }
 
-        function getUser(id) {
-            vm.user = null;
-            dataService.getData(apiUrl + '/user/' + id)
+        function getOrder(id) {
+            vm.order = null;
+            dataService.getData(apiUrl + '/order/' + id)
                 .then(function (result) {
-                    vm.user = result.data;
+                    vm.order = result.data;
                 },
                 function (error) {
-                    vm.user = null;
+                    vm.order = null;
                     console.log(error);
                 });
         }
 
-        function updateUser() {
-            if (!vm.user) return;
-
-            dataService.putData(apiUrl + '/user', vm.user)
+        function updateOrder() {
+            if (!vm.order) return;
+            dataService.putData(apiUrl + '/order', vm.order)
                 .then(function (result) {
-                    vm.user = {};
+                    vm.order = {};
                     getPageRecords(vm.currentPage);
                     closeModal();
                 },
                 function (error) {
-                    vm.user = {};
+                    vm.order = {};
                     console.log(error);
                 });
         }
 
-        function createUser() {
-            if (!vm.user) return;
-            dataService.postData(apiUrl + '/user', vm.user)
+        function createOrder() {
+            if (!vm.order) return;
+            dataService.postData(apiUrl + '/order', vm.order)
                 .then(function (result) {
-                    getUser(result.data);
+                    getOrder(result.data);
                     detail();
                     getPageRecords(1);
                     vm.currentPage = 1;
@@ -112,8 +112,8 @@
                 });
         }
 
-        function deleteUser() {
-            dataService.deleteData(apiUrl + '/user/' + vm.user.id)
+        function deleteOrder() {
+            dataService.deleteData(apiUrl + '/order/' + vm.order.id)
                 .then(function (result) {
                     getPageRecords(vm.currentPage);
                     closeModal();
@@ -124,37 +124,37 @@
         }
 
         function create() {
-            vm.user = {};
-            vm.modalTitle = 'Create User';
+            vm.order = {};
+            vm.modalTitle = 'Create Order';
             vm.modalButtonTitle = 'Create';
             vm.readOnly = false;
-            vm.modalFunction = createUser;
+            vm.modalFunction = createOrder;
             vm.isDelete = false;
         }
 
         function edit() {
             vm.showCreate = false;
-            vm.modalTitle = 'Edit User';
+            vm.modalTitle = 'Edit Order';
             vm.modalButtonTitle = 'Update';
             vm.readOnly = false;
-            vm.modalFunction = updateUser;
+            vm.modalFunction = updateOrder;
             vm.isDelete = false;
         }
 
         function detail() {
-            vm.modalTitle = 'The New User Created';
+            vm.modalTitle = 'The New Order Created';
             vm.modalButtonTitle = '';
             vm.readOnly = true;
             vm.modalFunction = null;
             vm.isDelete = false;
         }
 
-        function userDelete() {
+        function orderDelete() {
             vm.showCreate = false;
-            vm.modalTitle = 'Delete User';
+            vm.modalTitle = 'Delete Order';
             vm.modalButtonTitle = 'Delete';
             vm.readOnly = false;
-            vm.modalFunction = deleteUser;
+            vm.modalFunction = deleteOrder;
             vm.isDelete = true;
         }
 
