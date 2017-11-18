@@ -9,7 +9,8 @@
     function loginController($http, authenticationService, configService, $state) {
 		var vm = this;
 		vm.user = {};
-		vm.title = "Login";
+        vm.title = "Login";
+        vm.showError = false;
 		vm.login = login;
 
 		init();
@@ -22,8 +23,12 @@
 		}
 
 		function login() {
-            authenticationService.login(vm.user);
-            $state.go("home");
+            authenticationService.login(vm.user).then(function (result) {
+                vm.showError = false;
+                $state.go("home");
+            }, function (error) {
+                vm.showError = true;
+            });
 		}
 	}
 

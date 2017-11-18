@@ -17,7 +17,6 @@
             var url = configService.getApiUrl() + '/Token';
             $http.post(url, user)
                 .then(function (result) {
-                    $http.defaults.headers.common.Authorization = 'Bearer ' + result.data.access_Token;
                     localStorageService.set('userToken',
                         {
                             token: result.data.access_Token,
@@ -34,7 +33,6 @@
         }
 
         function logout() {
-            $http.defaults.headers.common.Authorization = '';
             localStorageService.remove('userToken');
             configService.setLogin(false);
         }
