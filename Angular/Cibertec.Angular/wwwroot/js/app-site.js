@@ -65,7 +65,6 @@
     function run($http, $state, localStorageService, configService) {
         var user = localStorageService.get('userToken');
         if (user && user.token) {
-            $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('userToken').token;
             configService.setLogin(true);
         }
         else
@@ -82,7 +81,7 @@
 
     angular.module('app').service('appInterceptor', appInterceptor);
 
-    angular.$inject = ['$q', '$state', 'configService', 'localStorageService', '$route'];
+    appInterceptor.$inject = ['$q', '$state', 'configService', 'localStorageService'];
 
     function appInterceptor($q, $state, configService, localStorageService) {
         return {
